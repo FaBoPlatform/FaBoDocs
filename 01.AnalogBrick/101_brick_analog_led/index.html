@@ -654,49 +654,6 @@
 <span class=nl>150</span><span class=w> </span><span class=kr>GOTO</span><span class=w> </span><span class=nl>110</span>
 </pre></div></td></tr></table></div></div>
 
-<p>PWMによる転送をおこないます。</p>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=c1># coding: utf-8</span>
-<span class=kn>import</span> <span class=nn>RPi.GPIO</span> <span class=kn>as</span> <span class=nn>GPIO</span>
-<span class=kn>import</span> <span class=nn>time</span>
-<span class=kn>import</span> <span class=nn>sys</span>
-
-<span class=n>LEDPIN</span> <span class=o>=</span> <span class=mi>4</span>
-
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setwarnings</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setmode</span><span class=p>(</span> <span class=n>GPIO</span><span class=o>.</span><span class=n>BCM</span> <span class=p>)</span>
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setup</span><span class=p>(</span> <span class=n>LEDPIN</span><span class=p>,</span> <span class=n>GPIO</span><span class=o>.</span><span class=n>OUT</span> <span class=p>)</span>
-<span class=n>LED</span> <span class=o>=</span> <span class=n>GPIO</span><span class=o>.</span><span class=n>PWM</span><span class=p>(</span><span class=n>LEDPIN</span><span class=p>,</span> <span class=mi>100</span><span class=p>)</span>
-<span class=n>value</span> <span class=o>=</span> <span class=mi>0</span>
-
-<span class=k>try</span><span class=p>:</span>
-    <span class=k>while</span> <span class=bp>True</span><span class=p>:</span>
-    <span class=n>LED</span><span class=o>.</span><span class=n>ChangeDutyCycle</span><span class=p>(</span><span class=n>value</span> <span class=o>%</span> <span class=mi>100</span><span class=p>)</span>
-    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.01</span><span class=p>)</span>
-    <span class=n>value</span> <span class=o>+=</span> <span class=mi>1</span>
-<span class=k>except</span> <span class=ne>KeyboardInterrupt</span><span class=p>:</span>
-    <span class=n>GPIO</span><span class=o>.</span><span class=n>cleanup</span><span class=p>()</span>
-    <span class=n>sys</span><span class=o>.</span><span class=n>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
-</pre></div></td></tr></table></p>
 <h2 id="_2">回路図</h2>
 <p><img alt="" src="../img/101_led.png" /></p>
 <h2 id="parts">構成Parts</h2>
