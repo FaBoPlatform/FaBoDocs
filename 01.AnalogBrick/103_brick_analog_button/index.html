@@ -232,15 +232,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting" title="Connecting" class="md-nav__link">
-    Connecting
+  <a href="#_1" title="接続" class="md-nav__link">
+    接続
   </a>
   
     <nav class="md-nav">
@@ -266,15 +259,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematic" title="Schematic" class="md-nav__link">
-    Schematic
+  <a href="#sample-code" title="Sample Code" class="md-nav__link">
+    Sample Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" title="Sample Code" class="md-nav__link">
-    Sample Code
+  <a href="#_2" title="回路図" class="md-nav__link">
+    回路図
   </a>
   
 </li>
@@ -498,15 +491,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting" title="Connecting" class="md-nav__link">
-    Connecting
+  <a href="#_1" title="接続" class="md-nav__link">
+    接続
   </a>
   
     <nav class="md-nav">
@@ -532,15 +518,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematic" title="Schematic" class="md-nav__link">
-    Schematic
+  <a href="#sample-code" title="Sample Code" class="md-nav__link">
+    Sample Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" title="Sample Code" class="md-nav__link">
-    Sample Code
+  <a href="#_2" title="回路図" class="md-nav__link">
+    回路図
   </a>
   
 </li>
@@ -577,21 +563,16 @@
                 
                 
                 <h1 id="103-button-brick">#103 Button Brick</h1>
-<p><center><img alt="" src="/img/100_analog/product/103.jpg" />
-<!--COLORME--></p>
-<h2 id="overview">Overview</h2>
+<p><a href="../img/103.jpg"></a></p>
 <p>ボタンを使ったBrickです。I/OピンよりボタンのON/OFFの状態を取得することができます。</p>
 <p>※ボタンカバー部分の色はランダムで送付するため色のご指定はできません。あらかじめご了承ください。</p>
-<h2 id="connecting">Connecting</h2>
+<h2 id="_1">接続</h2>
 <p>GPIOコネクタのいずれかに接続します。</p>
 <h3 id="raspberr-pi">Raspberr Pi</h3>
 <p><img alt="" src="/img/100_analog/connect/103_connect_with_rasppi.jpg" /></p>
 <h3 id="arduino">Arduino</h3>
 <p><img alt="" src="/img/100_analog/connect/103_button_connect.jpg" /></p>
-<h2 id="schematic">Schematic</h2>
-<p><img alt="" src="/img/100_analog/schematic/103_button.png" /></p>
 <h2 id="sample-code">Sample Code</h2>
-<p>GPIO5コネクタに接続したButton Brickの入力により、GPIO4コネクタに接続したLED Brick の点灯/消灯を制御しています。</p>
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre> 1
  2
  3
@@ -614,7 +595,17 @@
 20
 21
 22
-23</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=c1># coding: utf-8</span>
+23
+24
+25
+26
+27
+28</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=n>GPIO5コネクタに接続したButton</span> <span class=n>Brickの入力により</span><span class=err>、</span><span class=n>GPIO4コネクタに接続したLED</span> <span class=n>Brick</span> <span class=err>の点灯</span><span class=o>/</span><span class=err>消灯を制御しています。</span>
+<span class=sb>````</span>
+
+
+<span class=sb>``</span><span class=err>`</span><span class=n>python</span> <span class=n>fct_label</span><span class=o>=</span><span class=s2>&quot;RaspberryPi&quot;</span>
+<span class=c1># coding: utf-8</span>
 <span class=kn>import</span> <span class=nn>RPi.GPIO</span> <span class=kn>as</span> <span class=nn>GPIO</span>
 <span class=kn>import</span> <span class=nn>sys</span>
 
@@ -638,6 +629,8 @@
     <span class=n>GPIO</span><span class=o>.</span><span class=n>cleanup</span><span class=p>()</span>
     <span class=n>sys</span><span class=o>.</span><span class=n>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
 </pre></div></td></tr></table></p>
+<h2 id="_2">回路図</h2>
+<p><img alt="" src="../img/103_button.png" /></p>
 <h2 id="parts">構成Parts</h2>
 <ul>
 <li>12mm角タクトスイッチ</li>
