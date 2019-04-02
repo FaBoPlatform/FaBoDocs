@@ -631,7 +631,7 @@
 <span class=k>except</span> <span class=ne>KeyboardInterrupt</span><span class=p>:</span>
     <span class=n>GPIO</span><span class=o>.</span><span class=n>cleanup</span><span class=p>()</span>
     <span class=n>sys</span><span class=o>.</span><span class=n>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
-</pre></div></td></tr></table></div><input name=tab-group-0 type=radio id=tab-group-0-1_python class=code-tab data-lang=python aria-controls=tab-group-0-1_python-panel role=tab><label for=tab-group-0-1_python class=code-tab-label data-lang=python id=tab-group-0-1_python-label>Arduino</label><div class=code-tabpanel role=tabpanel data-lang=python id=tab-group-0-1_python-panel aria-labelledby=tab-group-0-1_python-label><table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre> 1
+</pre></div></td></tr></table></div><input name=tab-group-0 type=radio id=tab-group-0-1_c class=code-tab data-lang=c aria-controls=tab-group-0-1_c-panel role=tab><label for=tab-group-0-1_c class=code-tab-label data-lang=c id=tab-group-0-1_c-label>Arduino</label><div class=code-tabpanel role=tabpanel data-lang=c id=tab-group-0-1_c-panel aria-labelledby=tab-group-0-1_c-label><table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre> 1
  2
  3
  4
@@ -644,32 +644,20 @@
 11
 12
 13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=c1># coding: utf-8</span>
-<span class=kn>import</span> <span class=nn>RPi.GPIO</span> <span class=kn>as</span> <span class=nn>GPIO</span>
-<span class=kn>import</span> <span class=nn>time</span>
-<span class=kn>import</span> <span class=nn>sys</span>
+14</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=cp>#define ledPin 2 </span><span class=c1>// LEDピン</span>
 
-<span class=n>LEDPIN</span> <span class=o>=</span> <span class=mi>4</span>
+<span class=kt>void</span> <span class=nf>setup</span><span class=p>()</span> <span class=p>{</span>
+  <span class=c1>// LED接続ピンを出力に設定</span>
+  <span class=n>pinMode</span><span class=p>(</span><span class=n>ledPin</span><span class=p>,</span> <span class=n>OUTPUT</span><span class=p>);</span>
+<span class=p>}</span>
 
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setwarnings</span><span class=p>(</span><span class=bp>False</span><span class=p>)</span>
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setmode</span><span class=p>(</span> <span class=n>GPIO</span><span class=o>.</span><span class=n>BCM</span> <span class=p>)</span>
-<span class=n>GPIO</span><span class=o>.</span><span class=n>setup</span><span class=p>(</span> <span class=n>LEDPIN</span><span class=p>,</span> <span class=n>GPIO</span><span class=o>.</span><span class=n>OUT</span> <span class=p>)</span>
-
-<span class=k>try</span><span class=p>:</span>
-    <span class=k>while</span> <span class=bp>True</span><span class=p>:</span>
-        <span class=n>GPIO</span><span class=o>.</span><span class=n>output</span><span class=p>(</span> <span class=n>LEDPIN</span><span class=p>,</span> <span class=bp>True</span> <span class=p>)</span>
-        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span> <span class=mf>1.0</span> <span class=p>)</span>
-        <span class=n>GPIO</span><span class=o>.</span><span class=n>output</span><span class=p>(</span> <span class=n>LEDPIN</span><span class=p>,</span> <span class=bp>False</span> <span class=p>)</span>
-        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span> <span class=mf>1.0</span> <span class=p>)</span> 
-<span class=k>except</span> <span class=ne>KeyboardInterrupt</span><span class=p>:</span>
-    <span class=n>GPIO</span><span class=o>.</span><span class=n>cleanup</span><span class=p>()</span>
-    <span class=n>sys</span><span class=o>.</span><span class=n>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+<span class=kt>void</span> <span class=nf>loop</span><span class=p>()</span> <span class=p>{</span>
+  <span class=c1>// LEDを一定時間で点滅</span>
+  <span class=n>digitalWrite</span><span class=p>(</span><span class=n>ledPin</span><span class=p>,</span> <span class=n>HIGH</span><span class=p>);</span>
+  <span class=n>delay</span><span class=p>(</span><span class=mi>1000</span><span class=p>);</span>
+  <span class=n>digitalWrite</span><span class=p>(</span><span class=n>ledPin</span><span class=p>,</span> <span class=n>LOW</span><span class=p>);</span>
+  <span class=n>delay</span><span class=p>(</span><span class=mi>1000</span><span class=p>);</span>
+<span class=p>}</span>
 </pre></div></td></tr></table></div></div>
 
 <p>PWMによる転送をおこないます。</p>
